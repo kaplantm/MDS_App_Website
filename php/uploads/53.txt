@@ -1,0 +1,2 @@
+198,130,85,Earth,Earth's Surface,Atmosphere Diagram Start At The Bottom
+170,229,233,Troposphere,First Atmospheric Layer,Atmosphere Diagram Start At The Bottom

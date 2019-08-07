@@ -1,0 +1,8 @@
+0,145,147,Ash Cloud,Volcanic Ash Spewed Into the air,0
+222,222,222,Ash layer,layer of ash settled on volcano,1
+97,93,92,harden lava layer,layer of volcano created by lava cooling as it runs down,2
+148,82,0,ground,,3
+242,211,172,bedrock layer,,4
+87,38,0,deeper underground layers,,5
+255,38,25,magma chamber,underground chamber of liquid magma,6
+224,92,33,magma spout,vertical channel through which lava is forced through the earth,7

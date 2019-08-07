@@ -1,0 +1,9 @@
+0,0,0,sky,,0
+0,145,146,ash cloud,ash spewed into the air,1
+255,126,1,lava spout,thvertical channel of lava forced through the ear,2
+97,93,92,volcano trunk,pyramid shaped peak formed by hardened lava,3
+222,222,222,ash layer,layer of ash on volcano,4
+255,46,130,magma chamber,chamber of underground liquid magma,5
+148,81,0,Ground,,6
+243,211,172,Underground Bedrock,,7
+87,37,0,Deeper Underground Layers,,8

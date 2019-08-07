@@ -1,0 +1,6 @@
+63,166,3,Roof,Represented by a triangle,House: Simplified house viewed from front
+250,123,7,House,Main part of house. Represented by a rectangle.,House: Simplified house viewed from front
+123,45,216,Window,There are two windows on the front of this house.,House: Simplified house viewed from front
+0,77,214,Door,The front door of the house,House: Simplified house viewed from front
+249,44,121,Chimney,The chimney is represented as a rectangle protruding from the roof.,House: Simplified house viewed from front
+0,0,0,blank area,,House: Simplified house viewed from front

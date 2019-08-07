@@ -1,0 +1,7 @@
+253,215,170,U.S. Energy Consumption 2015,Pie Chart Title,U.S. Energy Consumption in 2015: Pie Chart
+249,77,0,Note,Renewable energy includes geothermal. solar. wind. biomass. biofuel. wood. and hydroelectric sources.,U.S. Energy Consumption in 2015: Pie Chart
+117,43,205,Renewable Energy. 10 percent,,U.S. Energy Consumption in 2015: Pie Chart
+111,205,241,Nuclear Energy. 9 percent,,U.S. Energy Consumption in 2015: Pie Chart
+56,197,65,Coal. 16 percent,,U.S. Energy Consumption in 2015: Pie Chart
+234,63,242,Petroleum. 29 percent,,U.S. Energy Consumption in 2015: Pie Chart
+241,200,59,Natural Gas. 16 percent,,U.S. Energy Consumption in 2015: Pie Chart

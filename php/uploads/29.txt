@@ -1,0 +1,4 @@
+0,145,147,Ash Cloud,Holds ash in the sky,0
+224,108,0,Magma Chamber,Hardcore underground magma,1
+222,222,222,Ash layer,ash chilling on the volcano,2
+224,92,33,Magma Spout Thing,the important bit,3

@@ -1,0 +1,16 @@
+192,192,192,Development Room,,0
+97,52,0,Demo Room,,1
+83,27,147,Office,,2
+215,131,255,Nick's Office,,3
+115,252,214,Rick's Office,,4
+69,158,11,Entry Lobby,,5
+167,189,234,Staircase,,6
+28,100,159,Wall,,7
+222,159,81,Door,,8
+49,69,4,Storage,,9
+255,147,0,Storage,,10
+128,75,92,Hallway and stairs to student offices,,11
+255,126,121,Bathroom,,12
+255,212,121,The Klave, secondary development area,,13
+212,251,121,Break room,,14
+164,27,0,Outdoor stairs to main entrance,,15

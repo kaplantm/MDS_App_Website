@@ -1,0 +1,6 @@
+198,129,84,Earth,Surface of the Earth,Atmosphere Diagram: Begin at the bottom of the screen, at the surface of the earth and move upward.
+169,229,233,Troposphere,lowest layer of the atmosphere, where weather takes place,Atmosphere Diagram: Begin at the bottom of the screen, at the surface of the earth and move upward.
+64,199,255,Stratosphere,second layer of the atmosphere,Atmosphere Diagram: Begin at the bottom of the screen, at the surface of the earth and move upward.
+53,106,214,Mesosphere,third layer of the atmosphere, In the mesosphere, in this layer temperature decreases as the altitude increases,Atmosphere Diagram: Begin at the bottom of the screen, at the surface of the earth and move upward.
+48,78,124,Thermosphere,fourth layer of the atmosphere, In the thermosphere, In the mesosphere, temperature decreases as the altitude increases,Atmosphere Diagram: Begin at the bottom of the screen, at the surface of the earth and move upward.
+66,66,66,Exosphere,the outermost region of a planet's atmosphere,Atmosphere Diagram: Begin at the bottom of the screen, at the surface of the earth and move upward.

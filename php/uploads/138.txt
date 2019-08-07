@@ -1,0 +1,2 @@
+248,123,7,Electron,Negatively Charged particles in orbit outside the nucleus,Helium Atom: 
+66,128,255,Proton,Positively charged,Helium Atom: 

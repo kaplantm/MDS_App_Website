@@ -1,0 +1,6 @@
+249,45,118,Cell Wall,A rigid membrane that surrounds a plant cell. The cell wall also bonds with other cell walls to form the structure of the plant.,Plant Cell: 
+253,215,171,Cell Membrane,A thin layer surrounding the cell inside the cell wall. The membrane is semipermeable. It allows some substances to enter the cell and blocks others.,Plant Cell: 
+65,119,1,Cytoplasm,The jellylike material outside the cell nucleus in which the organelles are located.,Plant Cell: 
+65,253,254,Chloro-plast,An organelle containing chlorophyll. Photosynthesis takes place in the chloro-plasts.,Plant Cell: 
+255,251,1,Nucleus,Spherical body containing many organelles including the nucleolus. The nucleus controls many of the functions of the cell and contains DNA.,Plant Cell: 
+0,0,0,blank area,,Plant Cell: 

@@ -1,0 +1,375 @@
+<!-- scale image or add info about required image size 
+maybe option to scale preview
+add area selection (color yellow within this area is this thing) 
+restrict file input type
+
+make array of colors and array of labels
+//edit or delete colors 
+position image in canvas
+clear value on save color
+button to start color selection
+expand description input feild
+print no_Entry when nothing added so the list still has three elements?-->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Audio-Haptic Diagram Creator</title>
+  
+  <head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+<script src="php/UploadScript3.js"></script>
+</head>
+
+<style>
+  body{
+    font-size:1.5em;
+
+    background-color: hsla(237, 33%, 9%, 1);
+    background-image: url('images/TilableDark.jpg');
+    width: 100%;
+    padding:0px;
+    margin:0px;
+    font-family: "Trebuchet MS", Helvetica, sans-serif;
+    font-weight: bold;
+  }
+  canvas{
+    border:2px solid red;
+    background-image: url("images/Apple_Background.jpeg");
+    float:left;
+    position:relative;
+    clear:left;
+    margin:2vh 0% 2vh 2%;
+  }
+  .image-upload > input
+  {
+      display: none;
+  }
+div{
+  box-sizing: border-box;
+  padding: .5em;
+  border-radius: 10px;
+  text-align: center;
+  float:left;
+  position: relative;
+  /*border: 2px solid red;*/
+  margin:2vh 2% 2vh 2%;
+}
+.image-upload{
+    margin:2vh 2% 2vh 2%;
+    position: relative; 
+    width:96%;
+    background-color: hsla(60, 48%, 89%, .2);
+
+  }
+#uploadStatus{
+    width: 90%;
+
+  }
+  #rightColumn{
+    position:relative;
+    float:left;
+    margin-top:2vh;
+    width:50%;
+    background-color: hsla(60, 48%, 89%, .2);
+  }
+  #CurrentColorContainer{
+    color:white;
+    background-color: hsla(277, 48%, 89%, .5);
+    width:96%;
+  }
+  #SavedColorContainer{
+    color:white;
+    background-color: hsla(277, 48%, 89%, .5);
+    width:96%;
+    display:none;
+  }
+  .SavedColorValue{
+    color:white;
+    background-color: transparent;
+    border:3px solid black;
+    width:95%;
+    margin-top:5px;
+    margin-bottom:0px;
+  }
+  .NewSavedColorValue{
+    color:white;
+    background-color: transparent;
+    border:3px solid black;
+    width:46%;
+    margin-top:5px;
+    margin-bottom:0px;
+  }
+ .CurrentColorClass{
+  width:46%;
+  height:2.25em;
+ }
+
+#fileContentHolder{
+display:none;
+}
+#selectImage{
+  width:99.5%;
+  margin:0vh .25% 0vh .25%;
+  background-color: hsla(277, 48%, 89%, .5);
+}
+  #loading, #message{
+    display:none;
+  }
+
+
+@media screen and (max-width: 1240px) {
+    body {
+        /*background-color: lightgreen;*/
+        /*background-image: none;    */
+    }
+    #rightColumn{
+    width:90%;
+    margin:2vh 5% 2vh 5%;
+  }
+    canvas{
+    border:2px solid red;
+    background-image: url("images/Apple_Background.jpeg");
+    float:left;
+    position:relative;
+    clear:left;
+    margin:2vh 5% 2vh 5%;
+  }
+}
+</style>
+<body onload="entry()">
+
+<div class="image-upload">
+
+   
+        <div id="selectImage">
+         <form id="uploadimage" action="" method="post" enctype="multipart/form-data" form="usrform">
+            <label>Select Your Image</label><br/>
+<textarea rows="4" cols="50" id="fileContentHolder" name="fileContentHolder" value="fileContentHolder form="usrform">
+Enter text here...</textarea>
+
+
+
+            <input type="file" name="file" id="file" required />
+            <input type="submit" value="Upload" class="submit" />
+
+
+    </form>
+                <div id='loading' >a</div>
+  <div id='message' >b</div>
+
+        </div>
+
+
+
+
+</div>
+
+
+<canvas width="540" height="960" id="canvas_picker"></canvas>
+
+
+<div id="rightColumn">
+	<div style="margin-left: 10%;width:80%;text-align: center;">
+
+		<input type="text" id="DiagramTitle" value="Diagram Title" style="margin: 2em;">
+	
+		<input type="text" id="InstructionalNotes" value="Instructional Notes">
+
+	</div>
+
+   <div id="CurrentColorContainer">
+      <div id="CurrentColorValueDisplay" class="CurrentColorClass">No Color Selected</div>
+      <div class="CurrentColorClass"><input type="text" id="labelEntry" value="Label"></div>
+      <div class="CurrentColorClass"><input type="text" id="descriptionEntry" value="Description"></div>
+<!--       <div id="no4" class="CurrentColorClass"><input type="text" id="LocationDescriptionEntry" value="Location Description"></div> -->
+<!--        <div id="no3" class="CurrentColorClass"><input type="text" id="loadOrderEntry" value="Load Order"></div>automate this later--><!--add entry descriptions--> 
+      <div id="no3" class="CurrentColorClass"><button onclick="saveColor()">Save Color</button></div>
+  </div>
+
+
+   <div id="SavedColorContainer">
+   </div>
+
+
+</div>
+
+
+<script>
+
+var img = new Image();
+var canvas = document.getElementById('canvas_picker');
+var context = document.getElementById('canvas_picker').getContext('2d');
+var rgb = "Out of Image Bounds, Please Click Within Image";
+
+var savedColorList = [];
+var savedLabelList = [];
+var savedDescriptionList = [];
+// var savedLocationList = [];
+var savedOrderList = [];
+
+var saveColorIndex = 0;
+
+
+
+
+context.strokeStyle = '#f00';  // some color/style
+context.lineWidth = 2;         // thickness
+  
+  // copy the image to the canvas
+  $(img).load(function(){
+    
+    if(img.width<=canvas.width && img.height <= canvas.height){
+    var xPos = (canvas.width-img.width)/2;
+    var yPos = (canvas.height-img.height)/2;
+
+    context.drawImage(img,xPos,yPos);
+    context.strokeRect(xPos,yPos,img.width,img.height);
+
+    // document.getElementById('uploadStatus').innerHTML = "Image Loaded. Click here to change images.";
+    }
+
+  else{
+  // document.getElementById('uploadStatus').innerHTML = "Upload failed. Image must not exceed 540 x 960 pixels. Click here to select another image.";
+  }
+  });
+
+
+  $('#canvas_picker').click(function(event){
+    // getting user coordinates
+    var x = event.pageX - this.offsetLeft;
+    var y = event.pageY - this.offsetTop;
+    // getting image data and RGB values
+    if((canvas.height/2-img.height/2) < y && y < (canvas.height/2+img.height/2) &&
+       (canvas.width/2-img.width/2) < x && x < (canvas.width/2+img.width/2)){
+    var img_data = context.getImageData(x, y, 1, 1).data;
+    var R = img_data[0];
+    var G = img_data[1];
+    var B = img_data[2];  
+    rgb = R + ',' + G + ',' + B;
+}
+else{
+  rgb = "Out of Image Bounds, Please Click Within Image";
+}
+    // making the color the value of the input
+
+    $('#CurrentColorValueDisplay').text("");
+    document.getElementById('CurrentColorValueDisplay').style.backgroundColor = "rgb("+rgb+")";
+  });
+  
+
+function saveColor(){
+// it make more sense to do this as an object with properties rather than a list
+if(rgb != "Out of Image Bounds, Please Click Within Image"){
+    savedColorList[saveColorIndex] = rgb;
+    savedDescriptionList[saveColorIndex] = document.getElementById("descriptionEntry").value;
+    savedLabelList[saveColorIndex] = document.getElementById("labelEntry").value;
+
+    // savedLocationList[saveColorIndex] = document.getElementById("LocationDescriptionEntry").value;
+    savedOrderList[saveColorIndex] = saveColorIndex;
+
+    var newSaveColorContainer = document.createElement("DIV");
+    var saveColorDiv = document.createElement("DIV");
+    var saveColorLabelDiv = document.createElement("DIV");
+    var saveColorDescriptionDiv = document.createElement("DIV");
+    // var savedLocationDiv = document.createElement("DIV");
+    var savedOrderDiv = document.createElement("DIV");
+
+    newSaveColorContainer.className = "NewSavedColorValue";
+    saveColorLabelDiv.className = "SavedColorValue";
+    saveColorDiv.className = "SavedColorValue";
+    saveColorDescriptionDiv.className = "SavedColorValue";
+    // savedLocationDiv.className = "SavedColorValue";
+    savedOrderDiv.className = "SavedColorValue";
+
+
+    saveColorDiv.style.backgroundColor = "rgb("+savedColorList[saveColorIndex]+")";
+    saveColorLabelDiv.innerHTML = savedLabelList[saveColorIndex];
+    saveColorDescriptionDiv.innerHTML = savedDescriptionList[saveColorIndex];
+    // savedLocationDiv.innerHTML = savedLocationList[saveColorIndex];
+    savedOrderDiv.innerHTML = "Load order: "+(parseInt(savedOrderList[saveColorIndex])+1);
+
+  document.getElementById('SavedColorContainer').style.display = "block";
+  document.getElementById('SavedColorContainer').appendChild(newSaveColorContainer);
+  
+  newSaveColorContainer.appendChild(saveColorDiv);
+  newSaveColorContainer.appendChild(saveColorLabelDiv);
+  newSaveColorContainer.appendChild(saveColorDescriptionDiv);
+  // newSaveColorContainer.appendChild(savedLocationDiv);
+  newSaveColorContainer.appendChild(savedOrderDiv);
+  saveColorIndex+=1;
+}
+}
+
+
+//MAYBE DELETE STUFF BELOW THIS
+/**
+ * Converts an RGB color value to HSL. Conversion formula
+ * adapted from http://en.wikipedia.org/wiki/HSL_color_space.
+ * Assumes r, g, and b are contained in the set [0, 255] and
+ * returns h, s, and l in the set [0, 1].
+ *
+ * @param   {number}  r       The red color value
+ * @param   {number}  g       The green color value
+ * @param   {number}  b       The blue color value
+ * @return  {Array}           The HSL representation
+ */
+function rgbToHsl(r, g, b){
+    r /= 255, g /= 255, b /= 255;
+    var max = Math.max(r, g, b), min = Math.min(r, g, b);
+    var h, s, l = (max + min) / 2;
+
+    if(max == min){
+        h = s = 0; // achromatic
+    }else{
+        var d = max - min;
+        s = l > 0.5 ? d / (2 - max - min) : d / (max + min);
+        switch(max){
+            case r: h = (g - b) / d + (g < b ? 6 : 0); break;
+            case g: h = (b - r) / d + 2; break;
+            case b: h = (r - g) / d + 4; break;
+        }
+        h /= 6;
+    }
+
+    return [h, s, l];
+}
+
+//       $("#btn-save").click( function() {
+//   // var text = $("#textarea").val();
+//   var text ="";
+//   for (var i = 0; i < savedColorList.length; i++) {
+//     text += savedColorList[i]+","+savedLabelList[i]+","+savedDescriptionList[i]+"\n";
+//   }
+//   var filename = $("#input-fileName").val()
+//   var blob = new Blob([text], {type: "text/plain;charset=utf-8"});
+//   saveAs(blob, filename+".txt");
+// });
+</script>
+
+
+<SCRIPT>
+function entry() {
+var testV = 1;
+var pass1 = prompt('Please Enter Your Password',' ');
+while (testV < 3) {
+if (!pass1) 
+history.go(-1);
+if (pass1.toLowerCase() == "a") {
+// alert('You Got it Right!');
+break;
+} 
+testV+=1;
+var pass1 = 
+prompt('Access Denied - Password Incorrect, Please Try Again.','Password');
+}
+if (pass1.toLowerCase()!="a" & testV ==3) 
+history.go(-1);
+return " ";
+} 
+</SCRIPT>
+</body>
+</html>

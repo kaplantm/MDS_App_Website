@@ -1,0 +1,6 @@
+169,118,72,Earth's Surface,,Layers of The Atmosphere: Begin at the bottom at the Earth's surface and move upward
+50,213,254,Troposphere,The lowest and most dense layer of the atmosphere. Breathable air and weather occurs in this layer ,Layers of The Atmosphere: Begin at the bottom at the Earth's surface and move upward
+250,125,167,Stratosphere,The second lowest layer. The ozone layer is in the stratosphere,Layers of The Atmosphere: Begin at the bottom at the Earth's surface and move upward
+253,211,62,Mesosphere,The third layer. Here is where most meteors burn up,Layers of The Atmosphere: Begin at the bottom at the Earth's surface and move upward
+54,210,169,Thermosphere,The fourth layer of the atmosphere. “Space” begins within this layer,Layers of The Atmosphere: Begin at the bottom at the Earth's surface and move upward
+66,66,66,Exosphere,The highest and least dense layer of the atmosphere,Layers of The Atmosphere: Begin at the bottom at the Earth's surface and move upward

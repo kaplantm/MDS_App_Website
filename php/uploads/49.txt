@@ -1,0 +1,2 @@
+198,130,85,earth,surface of earth,Atmosphere Diagram,Begin at bottom
+170,229,233,next level,the one above earth,Atmosphere,Diagram Begin at bottom

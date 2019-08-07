@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+  <head>
+<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+</head>
+<body>
+
+<script>
+$(document).ready(function(){
+  var id = 23; 
+$("#submit").click(function(){
+ $.ajax(
+    {
+    url: "php/test.php",
+    type: "POST",
+
+    data: { id1: id},
+    success: function (result) {
+            alert('success');
+
+    }
+});     
+   });
+  });
+ </script>
+ </head>
+ <body>
+ <form  >
+ <input type="button" id="submit" name="submit"/> 
+ </form>
+ </body>
+ </html>
+

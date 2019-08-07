@@ -1,0 +1,2 @@
+169,118,72,Earth Surface,,Atmosphere Diagram: Start at the bottom of the diagram at the earths surface and move up.
+50,213,254,Troposphere,Lowest layers of the atmosphere, breathable air and weather occur in this layer.,Atmosphere Diagram: Start at the bottom of the diagram at the earths surface and move up.

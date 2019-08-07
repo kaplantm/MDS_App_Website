@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Haptic Diagram Application | Diagram Creation</title>
+
+<link rel='stylesheet' id='rs-style-css'  href='style/Index_V2.css' type='text/css' media='all' />
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+<script src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
+<script src="php/UploadScript3.js"></script>
+
+<style>
+#loading, #message,#fileContentHolder,#submitButton{
+display:none;
+}
+
+ .SavedColorValue{
+    /*color:white;*/
+    /*border:3px solid black;*/
+    width:95%;
+    margin-top:5px;
+    margin-bottom:10px;
+    min-height: 30px;
+  }
+  .NewSavedColorValue{
+  	background-color: white;
+    /*color:white;*/
+    float:left;
+    /*border:3px solid black;*/
+    padding:2%;
+    width:43%;
+    margin-right:3%;
+    margin-top:5px;
+    margin-bottom:0px;
+  }
+
+</style>
+</head>
+
+<body class="home page page-id-57 page-template-default group-blog">
+<div id="page" class="hfeed site">
+	<header id="masthead" class="site-header" role="banner">
+		<script src="style/header.js"></script>
+</header><!-- #masthead -->
+
+			<div id="content-home" class="site-content">
+			<div id="content-center-home">
+
+	<div class="clear" style="height:10px;"></div>
+	<main id="main" class="site-main" role="main">
+		<div id="home-featured-wrapper">
+			<section id="home-featured-area">
+				
+				 
+					<div class="home-featured-content">
+						<div id="text_icl-7" class="widget widget_text_icl">        
+						<div class="textwidget">
+	
+	<!-- <div style="width:30%;float:left;min-width: 150px;;margin-bottom:2vh;"> -->
+
+<div class="home-feature-text" style="font-style:oblique;font-size:120%;margin:.75em 0em;" >Use this interface to label and upload existing 540x960 pixel PNG or JPG/JPEG diagrams. <br>For information on making diagrams, check out our resources on <a href="guideTemplates.html">creating diagrams</a>, and our <a href="videoTutorials.html">video tutorials</a>.
+</div>
+
+</div>
+</div> 
+					</div>
+					</section>
+
+
+		</div>
+
+<div class="clear" style="height:5vh;"></div>
+
+
+<canvas width="400" height="711" id="canvas_picker" style="border:2px solid black;float:right;margin:0px 15% 0px 0px;"></canvas>
+
+<div style="width:35%;margin-left:15%;">
+	<div style="font-style:oblique;font-size:120%;margin:.75em 0em;" >
+		
+
+		<div style="width:100%;background-color:#ededed;float:left;border:1px solid lightgray;box-sizing: border-box;min-width:300px;margin-bottom:2vh;">
+			<div id="selectImage" style="float:left;">
+        	
+	        	
+	         	<form id="uploadimage" action="" method="post" enctype="multipart/form-data" form="usrform" style="display:inline-block;width:100%">
+
+					<textarea rows="4" cols="50" id="fileContentHolder" name="fileContentHolder" value="fileContentHolder form="usrform">Enter text here...</textarea>
+
+					<span style="width:100%;background-color: none;display:inline-block;text-align: center;margin:5%;">
+					Select Image:&nbsp;&nbsp;&nbsp;&nbsp;
+					<input type="file" name="file" id="file" required style=""/>
+					</span>
+
+					<span id="submitButton" style="width:100%;background-color: hsla(140, 49%, 44%, 1);box-sizing: border-box;text-align: center;padding: 2%;color:white;">
+					Done adding elements?&nbsp;&nbsp;&nbsp;<input type="submit" value="Upload" class="submit"/>
+					</span>
+					<div id="uploadStatus" style="text-align: center;font-size:80%;">
+					No File Selected
+					</div>
+
+				</form>
+	            <div id='loading' >Loading...</div>
+	  			<div id='message' >b</div>
+
+			</div>
+		</div>
+
+
+		<div style="width:100%;background-color:#ededed;float:left;padding:5%;border:1px solid lightgray;box-sizing: border-box;min-width:300px;margin-bottom:2vh;">
+			<div id="selectImage" style="float:left;">
+        	
+	        	Diagram Title:&nbsp;&nbsp;&nbsp;&nbsp;
+	         	<input type="text" id="DiagramTitle" value="New Diagram" style="margin: 0em 0em 2em 0em;">
+				<br>
+				Instructor's Notes: &nbsp;&nbsp;&nbsp;&nbsp;
+				<input type="text" id="InstructionalNotes" value="">
+
+			</div>
+		</div>
+
+		<div style="width:100%;background-color:#ededed;float:left;padding:2.5vh 5% 2.5vh 5%;border:1px solid lightgray;box-sizing: border-box;min-width:300px;min-height:150px;height:30vh;margin-bottom:2vh;">
+			<div style="margin-bottom:1vh;">Create New Diagram Element</div>
+
+
+			<div id="CurrentColorContainer" style="height:20vh">
+			    <div id="CurrentColorValueDisplay" class="CurrentColorClass" style="border:2px solid black;width:40%;margin-right:2%;float:left;height:20vh;min-height:100px;padding:1em;box-sizing: border-box;border-radius: 10px;text-align: center;">No Color Selected</div>
+
+			    <div style="width:40%;float:left;margin:2%;">
+				    <div class="CurrentColorClass"><input type="text" id="labelEntry" value="Label"></div>
+				    <div class="CurrentColorClass"><input type="text" id="descriptionEntry" value="Description"></div>
+
+				    <div id="no3" class="CurrentColorClass" style="margin-top: 1vh;"><button onclick="saveColor()">Save Color</button></div>
+				</div>
+		  	</div>
+
+		</div>
+
+
+
+
+		<div style="width:100%;background-color:#ededed;float:left;padding:0px 5% 0px 5%;border:1px solid lightgray;border-top:4px solid #3aa896;box-sizing: border-box;min-width:300px;margin-bottom:2vh;">
+			Saved Diagram Elements
+			 <div id="SavedColorContainer">
+   			</div>
+		</div>
+
+
+	</div>
+</div>
+
+		<section id="home-content">
+			 
+				<div class="home-column home-voice-demo" style="width:100%;">
+					<div id="text_icl-100" class="widget widget_text_icl" >        <div class="textwidget">	<div class="showcase" >		
+		<div class="rs-post"> 
+			<span style="font-weight:bold;font-style: italic;">Having Issues? Check out our <a href="guideTemplates.html">diagram upload tutorial</a>, or the <a href="videoTutorials.html">diagram creation guidelines.</a></span>
+			</div>
+		</div> 
+	</div></div>
+</div> 		<div class="clear" style="height:10vh;"></div>
+				
+				</div>
+			
+			  
+		
+		</section>
+
+	</main><!-- #main -->
+	 
+
+		</div><!-- #content-center -->	
+	</div><!-- #content -->
+
+	<footer id="colophon" class="site-footer" role="contentinfo">
+		<script src="style/footer.js"></script>
+	</footer><!-- #colophon -->
+</div><!-- #page -->
+
+
+
+<script>
+
+var img = new Image();
+var canvas = document.getElementById('canvas_picker');
+var context = document.getElementById('canvas_picker').getContext('2d');
+var rgb = "Out of Image Bounds, Please Click Within Image";
+
+var savedColorList = [];
+var savedLabelList = [];
+var savedDescriptionList = [];
+var savedOrderList = [];
+
+var saveColorIndex = 0;
+
+context.strokeStyle = '#f00';  // some color/style
+context.lineWidth = 2;         // thickness
+  
+  // copy the image to the canvas
+  $(img).load(function(){
+    
+    if(img.width==540 && img.height == 960){
+    // var xPos = (canvas.width-img.width)/2;
+    // var yPos = (canvas.height-img.height)/2;
+    var xPos = 0;
+    var yPos = 0;
+
+    context.drawImage(img,xPos,yPos,canvas.width,canvas.height);
+    // context.strokeRect(xPos,yPos,img.width,img.height);
+
+    document.getElementById('uploadStatus').innerHTML = "Image Loaded. Ready to add diagram elements.";
+	document.getElementById('uploadStatus').style.color = "#31906f";
+    }
+
+  else{
+  document.getElementById('uploadStatus').innerHTML = "Upload failed. Image must be 540 x 960 pixels. Please select another image.";
+    document.getElementById('uploadStatus').style.color = "#8e2935";
+  }
+  });
+
+
+  $('#canvas_picker').click(function(event){
+    // getting user coordinates
+    var x = event.pageX - this.offsetLeft;
+    var y = event.pageY - this.offsetTop;
+    // getting image data and RGB values
+    if((canvas.height/2-img.height/2) < y && y < (canvas.height/2+img.height/2) &&
+       (canvas.width/2-img.width/2) < x && x < (canvas.width/2+img.width/2)){
+    var img_data = context.getImageData(x, y, 1, 1).data;
+    var R = img_data[0];
+    var G = img_data[1];
+    var B = img_data[2];  
+    rgb = R + ',' + G + ',' + B;
+}
+else{
+  rgb = "Out of Image Bounds, Please Click Within Image";
+}
+    // making the color the value of the input
+
+    $('#CurrentColorValueDisplay').text("");
+    document.getElementById('CurrentColorValueDisplay').style.backgroundColor = "rgb("+rgb+")";
+  });
+  
+
+function saveColor(){
+// it make more sense to do this as an object with properties rather than a list
+if(rgb != "Out of Image Bounds, Please Click Within Image"){
+    savedColorList[saveColorIndex] = rgb;
+    savedDescriptionList[saveColorIndex] = document.getElementById("descriptionEntry").value;
+    savedLabelList[saveColorIndex] = document.getElementById("labelEntry").value;
+
+    // savedLocationList[saveColorIndex] = document.getElementById("LocationDescriptionEntry").value;
+    savedOrderList[saveColorIndex] = saveColorIndex;
+
+    var newSaveColorContainer = document.createElement("DIV");
+    var saveColorDiv = document.createElement("DIV");
+    var saveColorLabelDiv = document.createElement("DIV");
+    var saveColorDescriptionDiv = document.createElement("DIV");
+    var savedOrderDiv = document.createElement("DIV");
+
+    newSaveColorContainer.className = "NewSavedColorValue";
+    saveColorLabelDiv.className = "SavedColorValue";
+    saveColorDiv.className = "SavedColorValue";
+    saveColorDescriptionDiv.className = "SavedColorValue";
+    savedOrderDiv.className = "SavedColorValue";
+
+    saveColorDiv.style.backgroundColor = "rgb("+savedColorList[saveColorIndex]+")";
+    saveColorLabelDiv.innerHTML = savedLabelList[saveColorIndex];
+    saveColorDescriptionDiv.innerHTML = savedDescriptionList[saveColorIndex];
+    savedOrderDiv.innerHTML = "Load order: "+(parseInt(savedOrderList[saveColorIndex])+1);
+
+
+  document.getElementById('submitButton').style.display = "inline-block";
+  document.getElementById('SavedColorContainer').style.display = "block";
+  document.getElementById('SavedColorContainer').appendChild(newSaveColorContainer);
+  
+  newSaveColorContainer.appendChild(saveColorDiv);
+  newSaveColorContainer.appendChild(saveColorLabelDiv);
+  newSaveColorContainer.appendChild(saveColorDescriptionDiv);
+  // newSaveColorContainer.appendChild(savedLocationDiv);
+  newSaveColorContainer.appendChild(savedOrderDiv);
+  saveColorIndex+=1;
+}
+}
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,6 @@
+248,123,7,Electron,Electrons are very small negatively charged particles located in orbit outside the nucleus. Their mass is negligible. ,Helium Atom: 
+66,128,255,Neutron,Neutrons are located in the nucleus of the atom. They have mass but no charge.,Helium Atom: 
+173,22,0,Prote-on,Prote-ons are positively charged particles in the nucleus of the atom. An element’s atomic number is equal to the number of prote-ons in its nucleus.,Helium Atom: 
+213,254,249,Orbital,Electron orbitals are areas around the nucleus where electrons have a high probability of occurring.,Helium Atom: 
+215,214,213,Nucleus,An atom's core. Contains prote-ons and neutrons.,Helium Atom: 
+0,0,0,blank area,,Helium Atom

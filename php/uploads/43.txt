@@ -1,0 +1,6 @@
+198,129,84,Earth's Surface,,0
+169,229,233,Troposphere,,1
+64,199,255,Stratosphere,,2
+53,106,214,Mesosphere,,3
+48,78,124,Thermosphere,,4
+66,66,66,Exosphere,,5

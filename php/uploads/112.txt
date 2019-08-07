@@ -1,0 +1,10 @@
+246,66,254,Nucleus,The nucleus is the master control of the cell. It contains genes and collections of DNA,Cell Diagram: 
+167,213,167,Nucleolus,Within the nucleus is an area known as the nucleolus. It is just an accumulation of RNA and proteins within the nucleus.,Cell Diagram: 
+123,12,1,Endoplasmic Reticulum,The endoplasmic reticulum functions as a manufacturing and packaging system for the cell,Cell Diagram: 
+115,208,69,Golgi Apparatus,The Golgi apparatus gathers simple molecules and combines them to make molecules that are more complex. It then takes those big molecules, packages them in vesicles,Cell Diagram: 
+65,65,68,Microtubules,Microtubules are rigid protein substances that form the internal skeleton of the cell known as the cytoskeleton,Cell Diagram: 
+123,46,212,Mitochondria,These are the powerhouses of the cell and break down nutrients to yield energy.,Cell Diagram: 
+6,69,119,Lysosomes,Lysosomes are vesicles that break off from the Golgi apparatus,Cell Diagram: 
+63,166,3,secretory vesicle,The secretory vesicle structure is similar to a lysosome. It contains enzymes that are not used within the cell but emptied outside of the cell,Cell Diagram: 
+253,215,169,Cytoplasm,The gelatinous matrix in which all the cell’s organelles are suspended,Cell Diagram: 
+36,168,214,Cell Membrane,Contains the cytoplasm and all the cell's organelles,Cell Diagram: 

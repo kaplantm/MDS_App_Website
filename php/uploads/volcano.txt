@@ -1,0 +1,13 @@
+48,40,22,Volcano Diagram is Below,
+0,145,147,Ash Cloud,A cloud of ash formed by volcanic explosions.
+0,0,0,Sky,
+222,222,222,Ash Layer,Fragments of lava or rock smaller than 2 mm in size that are blasted outward by volcanic explosions.
+97,93,92,Lava Layer,Layer of molten rock that erupts from a volcano that solidifies as it cools.
+155,188,206, Parasitic Cone,A small cone-shaped volcano formed by an accumulation of volcanic debris.
+224,66,0,Vent,An opening in Earth's surface through which volcanic materials escape.
+223,136,85,Still,A flat piece of rock formed when magma hardens in a crack in a volcano.
+224,92,33,Main Vent,An opening in Earth's surface through which volcanic materials escape.
+224,108,0,Magma Chamber,a large underground pool of molten rock sitting underneath the Earth’s crust
+242,211,172,Bedrock Layer,Underground layer of bedrock, through which the magma chamber opens to the main vent
+211,193,176,Deeper Underground Layers,
+187,130,92,Ground,

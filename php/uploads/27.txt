@@ -1,0 +1,4 @@
+255,1,125,Petals,Petals Do stuff,Large, upside-down triangular area towards center of screen.,1
+248,248,20,Pollen,Holds pollen,Two small ovals near top of screen.,2
+2,254,3,Middle Stem Thing,Its probably important,Vertical stem that extends from the bottom to nearly the top of the screen.,3
+2,254,3,Middle Stem Thing,Its probably important,Vertical stem that extends from the bottom to nearly the top of the screen.,3
